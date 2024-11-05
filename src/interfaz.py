@@ -1,9 +1,9 @@
 import time
 import os
 import platform
-from src.palabras import GestorPalabras
-from src.diagrama import DiagramaAhorcado
-from src.juego import Juego, EstadoJuego
+from palabras import GestorPalabras
+from diagrama import DiagramaAhorcado
+from juego import Juego, EstadoJuego
 
 
 class InteraccionConsola:
@@ -95,7 +95,7 @@ class ControladorAhorcado:
         """Muestra el estado actual del juego y el progreso del jugador."""
         self.interacciones.limpiar_pantalla()
         self.diagrama.dibujar(self.juego.errores)
-        print(self.juego.palabra)
+        
         
     def jugar(self):
         """Ejecuta el bucle principal del juego, gestionando cada turno."""
@@ -105,9 +105,7 @@ class ControladorAhorcado:
             print(f"Progreso: {self.juego.avance}")
             entrada_usuario = input("Ingresa una letra o intenta adivinar la palabra: ")
           
-            resultado_turno, puntos = self.juego.jugar_turno(entrada_usuario)
-            input(f"letras incorrectas {self.juego.letras_incorrectas}")
-        
+            resultado_turno, puntos = self.juego.jugar_turno(entrada_usuario)        
             if resultado_turno in [EstadoJuego.LETRAS_COMPLETAS, EstadoJuego.PALABRA_CORRECTA]:
                 self.mostrar_avance()
                 print(f"La palabra es: {' '.join(self.juego.palabra)}")
@@ -139,7 +137,7 @@ if __name__=="__main__":
     temas = gestor_palabras.obtener_temas()
     tema = interacciones.seleccionar_tema(temas)
     palabra = gestor_palabras.seleccionar_palabra(tema)
-    juego = Juego("niño")
+    juego = Juego(palabra)
     interfaz_ahorcado = ControladorAhorcado(juego, diagrama_ahorcado, interacciones)
     interfaz_ahorcado.jugar()
 

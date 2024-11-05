@@ -1,5 +1,5 @@
 import unicodedata
-from src.palabras import GestorPalabras
+from palabras import GestorPalabras
 from enum import Enum
 
 class EstadoJuego(Enum):
