@@ -11,6 +11,7 @@ El proyecto está organizado en varios módulos para facilitar su mantenimiento 
 - **`interfaz.py`**: Incluye la clase `InteraccionConsola`, que gestiona la interacción con el usuario, mostrando el menú, instrucciones, y capturando las entradas del usuario.
 - **`juego.py`**: Contiene la lógica principal del juego mediante la clase `Juego` y la enumeración `EstadoJuego`, la cual define los posibles estados (ganador, letra incorrecta, fuera de tiempo, etc.).
 - **`palabras.py`**: Define la clase `GestorPalabras`, la cual se encarga de gestionar las palabras disponibles para el juego y agruparlas por temas.
+- **`main.py`**: Importa todos los modulos para la ejecución del juego.
 
 ## Funcionalidades Principales
 
