@@ -1,9 +1,9 @@
 
-# Juego del Ahorcado en Consola
+# Juego del ahorcado en consola
 
 Este proyecto es un juego interactivo del ahorcado, donde los jugadores intentan adivinar una palabra letra por letra o al arriesgarse a adivinar la palabra completa. El juego se desarrolla en la consola, y se utiliza un sistema de puntos y un diagrama de ahorcado visual que se va completando con cada intento fallido.
 
-## Estructura del Proyecto
+## Estructura del proyecto
 
 El proyecto está organizado en varios módulos para facilitar su mantenimiento y expansión:
 
@@ -53,13 +53,12 @@ if __name__ == "__main__":
 
 ## Ejecución del Juego
 
-1. **Clonar el repositorio** y asegurarse de que todos los archivos están en su lugar.
+1. **Clonar el repositorio** 
+2. Ingresar la carpeta src
 2. En la terminal, ejecutar el archivo principal (`interfaz.py`) con el comando:
    ```bash
    python interfaz.py
    ```
 3. Seguir las instrucciones en pantalla para seleccionar un tema y comenzar a jugar.
 
-## Contribución
 
-Si deseas contribuir, puedes enviar un pull request o reportar problemas en el repositorio. Asegúrate de seguir las convenciones de estilo y realizar pruebas antes de enviar cualquier cambio.

@@ -1,10 +1,7 @@
-import time
 import os
+import time
 import platform
-from palabras import GestorPalabras
-from diagrama import DiagramaAhorcado
-from juego import Juego, EstadoJuego
-
+from juego import EstadoJuego
 
 class InteraccionConsola:
     """Clase para gestionar la interacción del juego del ahorcado en la consola."""
@@ -129,16 +126,5 @@ class ControladorAhorcado:
             print("¡¡¡Perdiste!!!")
             print(f"La palabra secreta era: {self.juego.palabra}")
 
-if __name__=="__main__":
-    interacciones = InteraccionConsola()
-    interacciones.mostrar_instrucciones()
-    diagrama_ahorcado = DiagramaAhorcado()
-    gestor_palabras = GestorPalabras()
-    temas = gestor_palabras.obtener_temas()
-    tema = interacciones.seleccionar_tema(temas)
-    palabra = gestor_palabras.seleccionar_palabra(tema)
-    juego = Juego(palabra)
-    interfaz_ahorcado = ControladorAhorcado(juego, diagrama_ahorcado, interacciones)
-    interfaz_ahorcado.jugar()
 
 

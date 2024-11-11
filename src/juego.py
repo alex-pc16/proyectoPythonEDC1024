@@ -86,7 +86,7 @@ class Juego:
         """
         Actualiza el progreso del jugador mostrando las letras adivinadas correctamente.
         """
-        self.avance = "".join([letra if self.normalizar_letra(letra) in 
+        self.avance = " ".join([letra if self.normalizar_letra(letra) in 
                                 self.letras_adivinadas else "_"
                                 for letra in self.palabra])
         
