@@ -58,7 +58,7 @@ if __name__ == "__main__":
 2. Ingresar la carpeta src
 2. En la terminal, ejecutar el archivo principal (`interfaz.py`) con el comando:
    ```bash
-   python interfaz.py
+   python main.py
    ```
 3. Seguir las instrucciones en pantalla para seleccionar un tema y comenzar a jugar.
 
