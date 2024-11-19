@@ -7,8 +7,8 @@ from interfaz import InteraccionConsola, ControladorAhorcado
 if __name__=="__main__":
     interacciones = InteraccionConsola()
     interacciones.mostrar_instrucciones()
-    diagrama_ahorcado = DiagramaAhorcado()
-    gestor_palabras = GestorPalabras()
+    diagrama_ahorcado = DiagramaAhorcado([])
+    gestor_palabras = GestorPalabras("src/temas_palabras.csv")
     temas = gestor_palabras.obtener_temas()
     tema = interacciones.seleccionar_tema(temas)
     palabra = gestor_palabras.seleccionar_palabra(tema)

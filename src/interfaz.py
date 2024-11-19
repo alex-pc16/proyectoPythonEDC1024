@@ -50,12 +50,14 @@ class InteraccionConsola:
         1. Tu misión es descubrir la palabra secreta antes 
            de que el ahorcado esté completo.
         2. Puedes adivinar la palabra letra por letra o intentar 
-           adivinar la palabra completa en cualquier momento.
+           adivinar la palabra completa (siempre que falten más de tres letras por adivinar).
         3. Por cada letra incorrecta, una nueva parte del dibujo 
            del ahorcado aparecerá. ¡Tienes un máximo de 6 intentos!
         4. Si completas el dibujo del ahorcado antes de encontrar 
            todas las letras, habrás perdido.
-        5. Si adivinas todas las letras antes de completar el dibujo 
+        5. Al terminar cada partida obtendras una puntuación dependiendo de cuantas letras
+           tenga la palabra y cuantos errores hayas tenido.
+        6. Si adivinas todas las letras antes de completar el dibujo 
            del ahorcado, ¡serás el ganador!
 
         ¡Buena suerte, y que comience el desafío!
@@ -97,7 +99,7 @@ class ControladorAhorcado:
     def jugar(self):
         """Ejecuta el bucle principal del juego, gestionando cada turno."""
         print("¡El juego ha comenzado! Adivina la palabra.")
-        while self.juego.errores < 6:
+        while self.juego.errores < self.juego.intentos_max:
             self.mostrar_avance()
             print(f"Progreso: {self.juego.avance}")
             entrada_usuario = input("Ingresa una letra o intenta adivinar la palabra: ")

@@ -3,13 +3,19 @@ from palabras import GestorPalabras
 from enum import Enum
 
 class EstadoJuego(Enum):
-    """Enum para representar los distintos estados posibles del juego."""
-    LETRAS_COMPLETAS = "letras_completas"
+    """
+    Enum para representar los distintos estados 
+    posibles despues de un turno del juego.
+    """
+    LETRA_REPETIDA = "letra_repetida"
+    # Se ingresa una letra correcta pero aún no se completa la palabra
+    SEGUIR_JUGANDO = "seguir_jugando"
     LETRA_INCORRECTA = "letra_incorrecta"
+    # Se ingresa una letra y con ella se completa la palabra
+    LETRAS_COMPLETAS = "letras_completas"
+    # Se ingresa toda la palabra completa y es correcta
     PALABRA_CORRECTA = "palabra_correcta"
     PALABRA_FUERA_DE_TIEMPO = "fuera_de_tiempo"
-    SEGUIR_JUGANDO = "seguir_jugando"
-    LETRA_REPETIDA = "letra_repetida"
 
 class Juego:
     """Clase que representa el juego de adivinanza de palabras."""
@@ -31,6 +37,7 @@ class Juego:
         letras_unicas = set(self.normalizar_letra(self.palabra))
         self.letras_restantes = len(letras_unicas) - len(self.letras_adivinadas)
         self.puntos = 0
+        self.intentos_max = 6
         
 
     def normalizar_letra(self, letra):
@@ -84,7 +91,8 @@ class Juego:
     
     def generar_avance(self):
         """
-        Actualiza el progreso del jugador mostrando las letras adivinadas correctamente.
+        Actualiza el progreso del jugador cambiando los 
+        guiones por las letras adivinadas correctamente.
         """
         self.avance = " ".join([letra if self.normalizar_letra(letra) in 
                                 self.letras_adivinadas else "_"
@@ -94,6 +102,11 @@ class Juego:
         self.letras_restantes = len(letras_unicas) - len(self.letras_adivinadas)
        
     def calcular_puntos(self):
+        """Calcula la puntuación al terminar el juego
+        Returns:
+            int: Puntuación considerando letras restantes y 
+                 cantidad de errores
+        """
 
         puntos = (200 + (self.letras_restantes) * 20 
                       - len(self.letras_incorrectas) * 5)
@@ -143,6 +156,5 @@ class Juego:
         if self.verificar_ganar_letra():
             return EstadoJuego.LETRAS_COMPLETAS, self.calcular_puntos() 
 
-    
         return EstadoJuego.SEGUIR_JUGANDO, 0
 
