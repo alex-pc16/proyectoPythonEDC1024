@@ -7,16 +7,18 @@ class EstadoJuego(Enum):
     Enum para representar los distintos estados 
     posibles despues de un turno del juego.
     """
-    LETRA_REPETIDA = "letra_repetida"
+    LETRA_REPETIDA = "Letra repetida"
     # Se ingresa una letra correcta pero aún no se completa la palabra
-    SEGUIR_JUGANDO = "seguir_jugando"
-    LETRA_INCORRECTA = "letra_incorrecta"
+    SEGUIR_JUGANDO = "Seguir jugando"
+    LETRA_INCORRECTA = "Letra incorrecta"
     # Se ingresa una letra y con ella se completa la palabra
-    LETRAS_COMPLETAS = "letras_completas"
+    LETRAS_COMPLETAS = "Letras completas"
     # Se ingresa toda la palabra completa y es correcta
-    PALABRA_CORRECTA = "palabra_correcta"
-    PALABRA_FUERA_DE_TIEMPO = "fuera_de_tiempo"
+    PALABRA_CORRECTA = "Palabra correcta"
+    PALABRA_FUERA_DE_TIEMPO = "Palabra fuera de tiempo ya no puedes adivinar la palabra completa"
 
+
+print(EstadoJuego.LETRA_INCORRECTA.value)
 class Juego:
     """Clase que representa el juego de adivinanza de palabras."""
     

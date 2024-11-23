@@ -47,6 +47,7 @@ if __name__ == "__main__":
     interfaz_ahorcado.jugar()
 ```
 
+
 ## Requisitos
 
 - **Python 3.x**
@@ -56,7 +57,7 @@ if __name__ == "__main__":
 
 1. **Clonar el repositorio** 
 2. Ingresar la carpeta src
-2. En la terminal, ejecutar el archivo principal (`interfaz.py`) con el comando:
+2. En la terminal, ejecutar el archivo principal (`main.py`) con el comando:
    ```bash
    python main.py
    ```

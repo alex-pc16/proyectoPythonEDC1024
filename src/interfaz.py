@@ -5,10 +5,20 @@ from juego import EstadoJuego
 
 class InteraccionConsola:
     """Clase para gestionar la interacción del juego del ahorcado en la consola."""
+    
+    @staticmethod
+    def limpiar_pantalla():
+        """Limpia la pantalla de la consola según el sistema operativo."""
+        if platform.system() == "Windows":
+            os.system("cls")
+        else:
+            os.system("clear")
 
-    def mostrar_menu(self, opciones):
+
+    @staticmethod
+    def mostrar_menu(opciones):
         """
-        Muestra un menú interactivo de temas disponibles y permite al usuario seleccionar uno.
+        Muestra un menú interactivo de opciones disponibles 
 
         Args:
             opciones (list): Lista de temas disponibles.
@@ -66,12 +76,7 @@ class InteraccionConsola:
         input("Presiona enter para continuar . . .")
         self.limpiar_pantalla()
 
-    def limpiar_pantalla(self):
-        """Limpia la pantalla de la consola según el sistema operativo."""
-        if platform.system() == "Windows":
-            os.system("cls")
-        else:
-            os.system("clear")
+
 
 
 class ControladorAhorcado:
@@ -112,19 +117,14 @@ class ControladorAhorcado:
                 print(f"Puntos: {puntos}")
                 break
            
-            elif resultado_turno == EstadoJuego.PALABRA_FUERA_DE_TIEMPO:
-                print("Ya no puedes adivinar la palabra completa. Sigue letra por letra.")
-                time.sleep(1)
-            
-            elif resultado_turno == EstadoJuego.LETRA_INCORRECTA:
-                print("Letra incorrecta")
-                time.sleep(1)
-
-            elif resultado_turno == EstadoJuego.LETRA_REPETIDA:
-                print("Ya usaste esa letra")
-                time.sleep(1)
+            elif resultado_turno in {EstadoJuego.PALABRA_FUERA_DE_TIEMPO,
+                                     EstadoJuego.LETRA_INCORRECTA,
+                                     EstadoJuego.LETRA_REPETIDA}:
+                print(resultado_turno.value)
+                time.sleep(2)
         
         else:
+            self.mostrar_avance()
             print("¡¡¡Perdiste!!!")
             print(f"La palabra secreta era: {self.juego.palabra}")
 
